@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "./globals.css";
