@@ -8,7 +8,10 @@ export default {
       secondary: '#FFB52A',
     },
     fontFamily: {
-      sans: ['var(--font-primary)', 'sans-serif'],
+      // sans: ['var(--font-primary)', 'sans-serif'],
+      sans: ["var(--font-poppins)", "sans-serif"],
+      roboto: ["var(--font-roboto)", "sans-serif"],
+      
     },
     animation: {
       marquee: 'marquee 25s linear infinite',

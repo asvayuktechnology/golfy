@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { BsFillCaretRightFill } from "react-icons/bs";
 
 interface SubCategory {
   name: string;
@@ -124,7 +125,7 @@ const FilterSidebar: React.FC = () => {
 
   return (
     <div className="package-sidebar-area w-full">
-      <div className="sidebar-wrapper bg-white p-6 rounded-2xl shadow-sm">
+      <div className="sidebar-wrapper bg-white rounded-2xl shadow-sm">
         {/* Title */}
         <div className="title-area flex items-center justify-between mb-6">
           <h5 className="text-lg font-semibold text-gray-900">Filter</h5>
@@ -138,7 +139,7 @@ const FilterSidebar: React.FC = () => {
         </div>
 
         {/* Destinations */}
-        <div className="single-widgets mb-8">
+        <div className="single-widgets ">
           <div className="widget-title mb-4">
             <h5 className="text-md font-semibold text-gray-800">
               Destinations
@@ -167,13 +168,18 @@ const FilterSidebar: React.FC = () => {
                       <span className="checkmark"></span>
                       <strong>{category.name}</strong>
                     </label>
-                    <i
+                    {/* <i
                       className={`bi bi-caret-right-fill sidebar-category-icon transition-transform ${
                         openCategories[category.name]
                           ? "rotate-90"
                           : ""
                       }`}
-                    ></i>
+                    ></i> */}
+                    <BsFillCaretRightFill size={13} fill="rgba(82,82,82,.6)" className={`active sidebar-category-icon transition-transform ${
+                        openCategories[category.name]
+                          ? "rotate-90"
+                          : ""
+                      }`}/>
                   </div>
 
                   {/* Sub Categories */}
@@ -182,7 +188,7 @@ const FilterSidebar: React.FC = () => {
                       {category.subCategories.map((sub) => (
                         <li key={sub.name}>
                           <label className="containerss flex items-center justify-between cursor-pointer">
-                            <span className="flex items-center gap-2">
+                            {/* <span className="flex items-center gap-2"> */}
                               <input
                                 type="checkbox"
                                 checked={!!checkedItems[sub.name]}
@@ -192,12 +198,12 @@ const FilterSidebar: React.FC = () => {
                               />
                               <span className="checkmark"></span>
                               <strong>
-                                <span>{sub.name}</span>
-                              </strong>
-                            </span>
-                            <span className="text-sm text-gray-500">
+                                <span className="text-[16px] font-medium text-[#525252]">{sub.name}</span>
+                            <span className="text-[16px] font-semibold text-[#525252] font-roboto">
                               {String(sub.count).padStart(2, "0")}
                             </span>
+                              </strong>
+                            {/* </span> */}
                           </label>
                         </li>
                       ))}
@@ -210,13 +216,13 @@ const FilterSidebar: React.FC = () => {
         </div>
 
         {/* Tour Type */}
-        <div className="single-widgets mb-8">
+        <div className="single-widgets ">
           <div className="widget-title mb-4">
             <h5 className="text-md font-semibold text-gray-800">
               Tour Type
             </h5>
           </div>
-          <ul className="tour-type space-y-2 text-gray-700">
+          <ul className="tour-type  text-gray-700">
             {tourTypes.map((type) => (
               <li
                 key={type}
@@ -229,7 +235,7 @@ const FilterSidebar: React.FC = () => {
         </div>
 
         {/* Activities */}
-        <div className="single-widgets mb-8">
+        <div className="single-widgets">
           <div className="widget-title mb-4">
             <h5 className="text-md font-semibold text-gray-800">
               Activities
@@ -243,7 +249,7 @@ const FilterSidebar: React.FC = () => {
               {activities.map((activity) => (
                 <li key={activity.name}>
                   <label className="containerss flex items-center justify-between cursor-pointer">
-                    <span className="flex items-center gap-2">
+                    {/* <span className="flex items-center gap-2"> */}
                       <input
                         type="checkbox"
                         checked={!!checkedItems[activity.name]}
@@ -254,11 +260,11 @@ const FilterSidebar: React.FC = () => {
                       <span className="checkmark"></span>
                       <strong>
                         <span>{activity.name}</span>
-                      </strong>
-                    </span>
-                    <span className="text-sm text-gray-500">
+                    <span className="text-[16px] font-semibold text-[#525252] font-roboto">
                       {String(activity.count).padStart(2, "0")}
                     </span>
+                      </strong>
+                    {/* </span> */}
                   </label>
                 </li>
               ))}
@@ -286,7 +292,7 @@ const FilterSidebar: React.FC = () => {
               {offers.map((offer) => (
                 <li key={offer.name}>
                   <label className="containerss flex items-center justify-between cursor-pointer">
-                    <span className="flex items-center gap-2">
+                    {/* <span className="flex items-center gap-2"> */}
                       <input
                         type="checkbox"
                         checked={!!checkedItems[offer.name]}
@@ -297,11 +303,11 @@ const FilterSidebar: React.FC = () => {
                       <span className="checkmark"></span>
                       <strong>
                         <span>{offer.name}</span>
-                      </strong>
-                    </span>
-                    <span className="text-sm text-gray-500">
+                    <span className="text-[16px] font-semibold text-[#525252] font-roboto">
                       {String(offer.count).padStart(2, "0")}
                     </span>
+                      </strong>
+                    {/* </span> */}
                   </label>
                 </li>
               ))}
