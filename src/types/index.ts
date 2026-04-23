@@ -56,6 +56,18 @@ export interface NavItem {
   children?: NavItem[];
 }
 
+export interface Packages {
+  title: string;
+  location: string;
+  duration: string; // or more specific if needed
+  price: number;
+  image: string;
+  badge: string;
+  link: string;
+  experiences: string;
+  inclusions: string;
+}
+
 
 export interface Offer {
   id: number;
