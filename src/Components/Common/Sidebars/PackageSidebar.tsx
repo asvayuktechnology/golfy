@@ -9,6 +9,7 @@ import TextAreaInput from "../input/TextAreaInput";
 import { usePostEnquiry } from "@/services/packageService";
 import { z } from "zod";
 import { toastError, toastSuccess } from "@/utils/toast";
+import OrderModal from "../Modals/OrderModal";
 
 interface PackageSidebarProps {
   packageData: any;
@@ -30,6 +31,7 @@ const enquirySchema = z.object({
 
 const PackageSidebar = ({ packageData }: PackageSidebarProps) => {
   const [showEnquiry, setShowEnquiry] = useState(false);
+  const [showOrder, setShowOrder] = useState(false);
 
   const discount = packageData?.discounts?.[0];
 
@@ -145,6 +147,15 @@ const PackageSidebar = ({ packageData }: PackageSidebarProps) => {
           onClick={() => setShowEnquiry(true)}
         />
 
+        <SiteBtn
+          link="#"
+          svgIcon={svgIcon.arrow}
+          iconPosition="end"
+          text="Order Packages"
+          className="primary-btn1 black-bg mt-3"
+          onClick={() => setShowOrder(true)}
+        />
+
         <span>
           {svgIcon.warningIcon2} Bonus Activity Included – Limited Time!
         </span>
@@ -193,7 +204,14 @@ const PackageSidebar = ({ packageData }: PackageSidebarProps) => {
         />
       </div>
 
-      {/* MODAL */}
+      {/* ORDER MODAL */}
+      <OrderModal
+        isOpen={showOrder}
+        onClose={() => setShowOrder(false)}
+        packageData={packageData}
+      />
+
+      {/* ENQUIRY MODAL */}
       {showEnquiry && (
         <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 px-4">
           <div className="relative w-full max-w-3xl rounded-[20px] bg-white p-8 md:p-10 overflow-y-auto max-h-[90vh]">
