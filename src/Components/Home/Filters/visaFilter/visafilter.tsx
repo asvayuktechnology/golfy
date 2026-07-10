@@ -4,6 +4,7 @@ import React, { useMemo, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useVisaCategories } from '@/services/visaService'
 import { VisaType } from '@/utils'
+import SiteBtn from '@/Components/Common/SiteBtn/SiteBtn'
 
 const VisaTabFilter = () => {
   const router = useRouter()
@@ -97,6 +98,7 @@ const VisaTabFilter = () => {
             onChange={(e) => setVisaType(e.target.value)}
             className="absolute inset-0 opacity-0 cursor-pointer z-10"
           >
+            
             {categoryOptions.map((item) => (
               <option key={item} value={item}>
                 {item}
@@ -114,9 +116,12 @@ const VisaTabFilter = () => {
       </div>
 
       {/* SEARCH */}
-      <button type="submit" className="primary-btn1 cursor-pointer">
-        <span>SEARCH</span>
-      </button>
+  <SiteBtn
+  type="submit"
+  className="primary-btn1 cursor-pointer"
+  text="SEARCH"
+  disabled={!categoryId || !countryOptions}
+/>
     </form>
   )
 }

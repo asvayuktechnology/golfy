@@ -8,7 +8,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import LocationSlider from "../Common/UI/Sliders/LocationSlider";
-import { locationsdetail, travelPackagesData } from "@/lib/data";
+import { locationsdetail } from "@/lib/data";
 import ImgVideoSlider from "../Common/ImgVideoSlider";
 import DestinationWhyChoose from "./DestinationWhyChoose";
 import DestinationTravelSeason from "./DestinationTravelSeason";
@@ -18,6 +18,9 @@ import { useState } from "react";
 import ScrollingTripCardSection from "../Home/ScrollingTripCardSection";
 import { useSingleDestination } from "@/services/destinationService";
 import { DestinationDetailsSectionProps, DestinationInfoItem, TouristPlace } from "@/types/destinationType";
+
+import { useSuccessStories } from "@/services/successStoryService";
+import DestinationsPackagelist from "../Home/DestinationsPackagelist";
 
 
 
@@ -113,7 +116,10 @@ export default function DestinationDetailsSection({
     const { data, isLoading } = useSingleDestination(id || "");
     const capitalizeWords = (text?: string) =>
         text?.replace(/\b\w/g, (char) => char.toUpperCase());
-    console.log("datacheck", data)
+    // console.log("datacheck", data)
+const {
+  data: successStoriesData,
+} = useSuccessStories();
     return (
         <>
 
@@ -190,7 +196,10 @@ export default function DestinationDetailsSection({
 
             </div>
             <DestinationWhyChoose />
-            <ImgVideoSlider title="Recent Customer Experience" />
+            {/* <ImgVideoSlider title="Recent Customer Experience" /> */}
+            <ImgVideoSlider title="Recent Customer Experience" 
+                          stories={successStoriesData?.data || []}
+                        />
             <div className="container mx-auto">
                 <DestinationTravelSeason
                     seasons={data?.bestTimeToVisit || []}
@@ -208,11 +217,11 @@ export default function DestinationDetailsSection({
                 </div>
             </div>
 
-          <ScrollingTripCardSection
-                packages={travelPackagesData}
-                title="3 Tours Available in Paris"
-                subtitle="Working Process"
-                />
+         <DestinationsPackagelist
+  title={`Tours Available in ${data?.name}`}
+  subtitle="A curated list of the most popular travel packages based on different destinations."
+  destinationId={id}
+/>
                  {/* <OneDayTripSection packages={oneDayTrips} title="test" subtitle="test" /> */}
         </>
 

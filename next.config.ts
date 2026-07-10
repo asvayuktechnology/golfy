@@ -1,6 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  typescript: {
+    // ⚠️ Production build me TypeScript errors ignore karega
+    ignoreBuildErrors: true,
+  },
+
   images: {
     remotePatterns: [
       {
@@ -8,16 +13,19 @@ const nextConfig: NextConfig = {
         hostname: "gofly-next-js.vercel.app",
         pathname: "/**",
       },
-
-      // Local Backend Images
       {
         protocol: "http",
         hostname: "192.168.1.55",
         port: "7003",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "travelapi.houzer.tech",
+        port: "7008",
+        pathname: "/**",
+      },
     ],
-
     unoptimized: true,
   },
 

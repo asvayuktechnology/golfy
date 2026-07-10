@@ -137,7 +137,7 @@ const Footer: React.FC = () => {
                   <a href="#">{settings?.basicDetails?.address}</a>
                 </div>
 
-                <ul className="social-list">
+                <ul className="social-list text-white">
                   {/* Facebook */}
                   {settings?.socialLinks?.facebook && (
                     <li>
@@ -237,7 +237,7 @@ const Footer: React.FC = () => {
                 <ul className="widget-list">
                   {destinations.slice(0, 8).map((item: any) => (
                     <li key={item._id}>
-                      <Link href={`/destination/${item._id}`}>{item.name}</Link>
+                      <Link href={`/destination/${item._id}`}>{item.country} Tour</Link>
                     </li>
                   ))}
                 </ul>
@@ -282,8 +282,8 @@ const Footer: React.FC = () => {
                     url: "/contact",
                   },
                   {
-                    title: "Travel Inspirations",
-                    url: "/travel-inspirations",
+                    title: "Travel Inspiration",
+                    url: "/travel-inspiration",
                   },
                 ],
               },
