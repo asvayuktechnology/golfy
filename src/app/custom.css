@@ -1617,6 +1617,10 @@ body.tt-magic-cursor #magic-cursor {
     margin-left: 0
 }
 
+.slider-sub-heading{
+    margin-left:auto !important;
+}
+
 .slider-btn-grp {
     display: flex;
     align-items: center;
@@ -34411,7 +34415,7 @@ header.style-3.two .main-menu>ul>li.active>a i {
 }
 
 .contact-page .single-contact.active {
-    outline: 3px solid var(--black-color);
+    /* outline: 3px solid var(--black-color); */
     outline-offset: 2px;
     transform: scale(1.02);
 }

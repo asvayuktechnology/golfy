@@ -67,7 +67,7 @@ const FileUploadInput = ({
 
       {/* Upload Box */}
       <label
-        className={`
+        className={` fileinput-wrapper
           border-2 border-dashed rounded-xl
           p-6 flex flex-col items-center justify-center
           text-center cursor-pointer transition-all

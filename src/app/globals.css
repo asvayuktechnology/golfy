@@ -42,7 +42,7 @@ header.style-1 .main-menu>ul>li>a {
   position: unset;
 }
 input {
-  border-width: 1px;
+  border-width: 0px;
   border-style: solid;
 }
 .destination-img img {
@@ -141,4 +141,7 @@ button:disabled {
   border: none !important;
   outline: none !important;
   box-shadow: none !important;
+}
+.visa-application-form input, .visa-application-form textarea,.visa-application-form .fileinput-wrapper {
+    background: #f0f0f0;
 }

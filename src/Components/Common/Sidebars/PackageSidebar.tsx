@@ -202,9 +202,17 @@ const PackageSidebar = ({ packageData }: PackageSidebarProps) => {
             <button
               type="button"
               onClick={closeModal}
-              className="absolute right-5 top-5 flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 hover:bg-gray-100"
+              className="absolute right-5 top-5 flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-gray-100 hover:bg-gray-200 cursor-pointer"
             >
-              ✕
+              <svg
+                width={10}
+                height={10}
+                viewBox="0 0 10 10"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="red"
+              >
+                <path d="M2.00247 0.500545C1.79016 0.505525 1.58918 0.582706 1.4362 0.735547L0.694403 1.479C0.345704 1.82743 0.389689 2.43243 0.79164 2.83493L3.00694 5.05341L0.79164 7.27092C0.389689 7.67328 0.345566 8.27842 0.694403 8.62753L1.4362 9.37044C1.7849 9.71872 2.38879 9.67543 2.7913 9.27293L5.00659 7.05473L7.22189 9.27293C7.62467 9.67543 8.22898 9.71872 8.57699 9.37044L9.31989 8.62753C9.6679 8.27856 9.62461 7.67342 9.22182 7.27092L7.00653 5.05341L9.22182 2.83493C9.62461 2.43243 9.6679 1.82743 9.31989 1.479L8.57699 0.735547C8.22898 0.386433 7.62467 0.430557 7.22189 0.833614L5.00659 3.05126L2.7913 0.833753C2.56515 0.606635 2.27482 0.493906 2.00247 0.500545Z" />
+              </svg>
             </button>
 
             {/* TITLE */}
@@ -215,116 +223,113 @@ const PackageSidebar = ({ packageData }: PackageSidebarProps) => {
             </div>
 
             {/* FORM */}
-            <form onSubmit={handleSubmit}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+            <div className="border border-[#E8E8E8] px-[30px] py-[35px] rounded-[10px]">
 
-                {/* Full Name */}
-                <div className="flex flex-col gap-1">
-                  <label className="text-sm font-medium text-gray-700">Full Name</label>
-                  <input
-                    type="text"
-                    name="fullName"
-                    value={formData.fullName}
-                    onChange={handleChange}
-                    className="w-full border rounded-lg p-3 focus:outline-none"
-                    placeholder="Enter full name"
-                  />
-                  {errors.fullName && <p className="text-red-500 text-sm">{errors.fullName}</p>}
+              <form onSubmit={handleSubmit}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+
+                  {/* Full Name */}
+                  <div className="flex flex-col gap-1">
+                    <label className="text-sm font-medium text-gray-700">Full Name</label>
+                    <input
+                      type="text"
+                      name="fullName"
+                      value={formData.fullName}
+                      onChange={handleChange}
+                      className="w-full rounded-lg p-3 bg-[#F0F0F0]"
+                      placeholder="Enter full name"
+                    />
+                    {errors.fullName && <p className="text-red-500 text-sm">{errors.fullName}</p>}
+                  </div>
+
+                  {/* Email */}
+                  <div className="flex flex-col gap-1">
+                    <label className="text-sm font-medium text-gray-700">Email</label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full rounded-lg p-3 bg-[#F0F0F0]"
+                      placeholder="Enter email"
+                    />
+                    {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+                  </div>
+
+                  {/* Phone */}
+                  <div className="flex flex-col gap-1">
+                    <label className="text-sm font-medium text-gray-700">Phone</label>
+                    <input
+                      type="text"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="w-full rounded-lg p-3 bg-[#F0F0F0]"
+                      placeholder="Enter phone number"
+                    />
+                    {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
+                  </div>
+
+                  {/* Number of People */}
+                  <div className="flex flex-col gap-1">
+                    <label className="text-sm font-medium text-gray-700">Number of People</label>
+                    <input
+                      type="number"
+                      name="numberOfPeople"
+                      value={formData.numberOfPeople}
+                      onChange={handleChange}
+                      className="w-full rounded-lg p-3 bg-[#F0F0F0]"
+                      placeholder="Enter number of people"
+                      min={1}
+                    />
+                    {errors.numberOfPeople && <p className="text-red-500 text-sm">{errors.numberOfPeople}</p>}
+                  </div>
+
+                  {/* Travel Date */}
+                  <div className="flex flex-col gap-1">
+                    <label className="text-sm font-medium text-gray-700">
+                      Travel Date
+                    </label>
+                    <input
+                      type="date"
+                      name="travelDate"
+                      value={formData.travelDate}
+                      onChange={handleChange}
+                      className="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-primary bg-[#F0F0F0]"
+                    />
+                    {errors.travelDate && (
+                      <p className="text-red-500 text-sm">{errors.travelDate}</p>
+                    )}
+                  </div>
+
                 </div>
 
-                {/* Email */}
-                <div className="flex flex-col gap-1">
-                  <label className="text-sm font-medium text-gray-700">Email</label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
+                {/* Details */}
+                <div className="flex flex-col gap-1 mb-6">
+                  <label className="text-sm font-medium text-gray-700">Details</label>
+                  <textarea
+                    name="details"
+                    value={formData.details}
                     onChange={handleChange}
-                    className="w-full border rounded-lg p-3 focus:outline-none"
-                    placeholder="Enter email"
+                    className="w-full rounded-lg p-3 bg-[#F0F0F0]"
+                    placeholder="Enter trip details"
+                    rows={4}
                   />
-                  {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+                  {errors.details && <p className="text-red-500 text-sm">{errors.details}</p>}
                 </div>
 
-                {/* Phone */}
-                <div className="flex flex-col gap-1">
-                  <label className="text-sm font-medium text-gray-700">Phone</label>
-                  <input
-                    type="text"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full border rounded-lg p-3 focus:outline-none"
-                    placeholder="Enter phone number"
-                  />
-                  {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
+                <div className="flex justify-end gap-4 cursor-pointer">
+                  
+                  <button
+                    type="submit"
+                    disabled={isPending}
+                    className="primary-btn1 black-bg cursor-pointer "
+                  >
+                    {isPending ? "Submitting..." : "Submit Enquiry"}
+                  </button>
                 </div>
-
-                {/* Number of People */}
-                <div className="flex flex-col gap-1">
-                  <label className="text-sm font-medium text-gray-700">Number of People</label>
-                  <input
-                    type="number"
-                    name="numberOfPeople"
-                    value={formData.numberOfPeople}
-                    onChange={handleChange}
-                    className="w-full border rounded-lg p-3 focus:outline-none"
-                    placeholder="Enter number of people"
-                    min={1}
-                  />
-                  {errors.numberOfPeople && <p className="text-red-500 text-sm">{errors.numberOfPeople}</p>}
-                </div>
-
-                {/* Travel Date */}
-                <div className="flex flex-col gap-1">
-                  <label className="text-sm font-medium text-gray-700">
-                    Travel Date
-                  </label>
-                  <input
-                    type="date"
-                    name="travelDate"
-                    value={formData.travelDate}
-                    onChange={handleChange}
-                    className="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                  {errors.travelDate && (
-                    <p className="text-red-500 text-sm">{errors.travelDate}</p>
-                  )}
-                </div>
-
-              </div>
-
-              {/* Details */}
-              <div className="flex flex-col gap-1 mb-6">
-                <label className="text-sm font-medium text-gray-700">Details</label>
-                <textarea
-                  name="details"
-                  value={formData.details}
-                  onChange={handleChange}
-                  className="w-full border rounded-lg p-3 focus:outline-none"
-                  placeholder="Enter trip details"
-                  rows={4}
-                />
-                {errors.details && <p className="text-red-500 text-sm">{errors.details}</p>}
-              </div>
-
-              <div className="flex justify-end gap-4 cursor-pointer">
-                <button
-                  type="button"
-                  onClick={closeModal}
-                  className="px-6 py-3 border rounded-lg hover:bg-gray-50 cursor-pointer"
-                >
-                  Close
-                </button>
-                <button
-                  type="submit"
-                  disabled={isPending}
-                  className="primary-btn1 black-bg cursor-pointer "
-                >
-                  {isPending ? "Submitting..." : "Submit Enquiry"}
-                </button>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
       )}

@@ -20,7 +20,7 @@ const BlogCard = ({
             alt={title}
             width={550}
             height={220}
-            className="w-full h-auto"
+            className="w-full h-full lg:min-h-[445px] object-cover"
           />
         </Link>
       </div>

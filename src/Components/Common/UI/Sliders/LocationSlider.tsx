@@ -98,14 +98,14 @@ export default function LocationSlider({
             {showNavigation && (
                 <div className="slider-btn-grp two mt-8 flex items-center gap-4">
                     <button
-                        className={`slider-btn location-slider-prev-${navigationId} cursor-pointer`}
+                        className={`slider-btn location-slider-prev location-slider-prev-${navigationId} cursor-pointer`}
                         aria-label="Previous Slide"
                     >
                         {svgIcon.detaillocationprev}
                     </button>
 
                     <button
-                        className={`slider-btn location-slider-next-${navigationId} cursor-pointer`}
+                        className={`slider-btn location-slider-next location-slider-next-${navigationId} cursor-pointer`}
                         aria-label="Next Slide"
                     >
                         {svgIcon.detaillocationnext}

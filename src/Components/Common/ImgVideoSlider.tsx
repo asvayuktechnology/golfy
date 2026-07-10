@@ -23,7 +23,7 @@ const ImgVideoSlider = ({
                     </h2>
 
                     {description && (
-                        <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+                        <p className="mt-4 text-gray-600 max-w-2xl mx-auto text-center slider-sub-heading">
                             {description}
                         </p>
                     )}

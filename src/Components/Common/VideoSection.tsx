@@ -27,7 +27,7 @@ const VideoSection = ({ setIsOpen, thumbnail }: Props) => {
                         type="button"
                         aria-label="Play video"
                         onClick={() => setIsOpen(true)}
-                        className="gallery-item play-btn absolute left-1/2 top-1/2 z-10 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-black shadow-2xl transition-transform duration-300 hover:scale-110 cursor-pointer"
+                        className="gallery-item play-btn absolute left-1/2 top-1/2 z-10 flex h-20 w-20  items-center justify-center rounded-full bg-white text-black shadow-2xl transition-transform duration-300 hover:scale-110 cursor-pointer"
                     >
                         <Play className="h-8 w-8 fill-current" />
 
