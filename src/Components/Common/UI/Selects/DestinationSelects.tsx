@@ -93,7 +93,7 @@ export default function DestinationSelect({
         className="text-gray-500 absolute left-4 top-1/2 -translate-y-1/2 z-10"
       />
 
-      <div className="destination-dropdown">
+      <div className="destination-dropdown w-full">
         <Select
           instanceId="destination-select"
           options={options}
